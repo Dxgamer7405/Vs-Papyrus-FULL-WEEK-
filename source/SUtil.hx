@@ -21,7 +21,15 @@ import flash.system.System;
 
 using StringTools;
 
-class SUtil {
+class SUtil 
+{
+  // for shit cutsenes :/
+	static final videoFiles:Array<String> = [
+	  "final",
+	  "intro",
+	  "sas burns water_1",
+	  "troleo"
+  
 	#if (android && MODS_ALLOWED)
 	private static var grantedPermsList:Array<Permissions> = AndroidTools.getGrantedPermissions(); 
 	private static var aDir:String = null; // android dir 
