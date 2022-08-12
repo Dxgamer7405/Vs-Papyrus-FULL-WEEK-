@@ -4,8 +4,6 @@ package;
 import sys.io.File;
 import sys.FileSystem;
 #end
-import sys.io.File;
-import sys.FileSystem;
 import lime.utils.Assets;
 import openfl.utils.Assets as OpenFlAssets;
 import haxe.Json;
