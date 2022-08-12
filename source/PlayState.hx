@@ -4224,6 +4224,19 @@ class PlayState extends MusicBeatState
 		}
 		checkEventNote();
 
+		#if debug
+		if(!endingSong && !startingSong) {
+			if (FlxG.keys.justPressed.ONE) {
+				KillNotes();
+				FlxG.sound.music.onComplete();
+			}
+			if(FlxG.keys.justPressed.TWO) { //Go 10 seconds into the future :O
+				setSongTime(Conductor.songPosition + 10000);
+				clearNotesBefore(Conductor.songPosition);
+			}
+		}
+		#end
+
 		setOnLuas('cameraX', camFollowPos.x);
 		setOnLuas('cameraY', camFollowPos.y);
 		setOnLuas('botPlay', cpuControlled);
@@ -5132,6 +5145,20 @@ class PlayState extends MusicBeatState
 		}
 	}
 	#end
+
+	public function KillNotes() {
+		while(notes.length > 0) {
+			var daNote:Note = notes.members[0];
+			daNote.active = false;
+			daNote.visible = false;
+
+			daNote.kill();
+			notes.remove(daNote, true);
+			daNote.destroy();
+		}
+		unspawnNotes = [];
+		eventNotes = [];
+	}
 
 	public var totalPlayed:Int = 0;
 	public var totalNotesHit:Float = 0.0;
