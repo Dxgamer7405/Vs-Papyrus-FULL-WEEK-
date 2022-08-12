@@ -29,6 +29,7 @@ class SUtil
 	  "intro",
 	  "sas burns water_1",
 	  "troleo"
+	 ];
   
 	#if (android && MODS_ALLOWED)
 	private static var grantedPermsList:Array<Permissions> = AndroidTools.getGrantedPermissions(); 
