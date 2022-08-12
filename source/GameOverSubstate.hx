@@ -131,6 +131,10 @@ class GameOverSubstate extends MusicBeatSubstate
 			add(PlayState.failDial);
 			PlayState.failDial.start(0.04,true);
 
+		#if android
+		addVirtualPad(NONE, A_B);
+		addPadCamera();
+		#end
 		}	
 	}
 
