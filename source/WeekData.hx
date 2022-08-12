@@ -1,5 +1,9 @@
 package;
 
+#if MODS_ALLOWED
+import sys.io.File;
+import sys.FileSystem;
+#end
 import sys.io.File;
 import sys.FileSystem;
 import lime.utils.Assets;
