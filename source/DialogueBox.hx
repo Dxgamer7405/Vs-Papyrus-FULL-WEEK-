@@ -246,8 +246,20 @@ class DialogueBox extends FlxSpriteGroup
 				music.play();
 			}
 		}
+		
+				#if android
+                var justTouched:Bool = false;
 
-		if (PlayerSettings.player1.controls.BACK && dialogueStarted && !isEnding && !cheating)
+		for (touch in FlxG.touches.list)
+		{
+			if (touch.justPressed)
+			{
+				justTouched = true;
+			}
+		}
+		#end
+
+		if (PlayerSettings.player1.controls.ACCEPT #if android || justTouched #end && dialogueStarted && !isEnding && !cheating)
 		{
 			isEnding = true;
 
@@ -271,7 +283,7 @@ class DialogueBox extends FlxSpriteGroup
 				});
 		}
 
-		if (PlayerSettings.player1.controls.ACCEPT && dialogueStarted == true)
+		if (PlayerSettings.player1.controls.ACCEPT #if android || justTouched #end && dialogueStarted == true)
 		{
 			remove(dialogue);
 				
